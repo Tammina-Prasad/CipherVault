@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CipherVault — Secure Encryption & Decryption</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <canvas id="particles"></canvas>
+
+  <nav class="navbar">
+    <div class="logo"><span class="logo-icon">🛡</span> Cipher<span class="accent">Vault</span></div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#encrypt">Encrypt</a></li>
+      <li><a href="#decrypt">Decrypt</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </nav>
+
+  <header id="home" class="hero">
+    <div class="hero-content">
+      <h1>Cipher<span class="accent">Vault</span></h1>
+      <p class="typewriter" id="typewriter"></p>
+      <p class="subtitle">Military-grade Fernet (AES-128) encryption, right in your browser.</p>
+      <div class="hero-buttons">
+        <a href="#encrypt" class="btn btn-primary">Start Encrypting</a>
+        <a href="#about" class="btn btn-ghost">Learn More</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="encrypt" class="section">
+    <div class="card glass">
+      <h2><span class="accent">🔒</span> Encrypt Text</h2>
+      <textarea id="plainText" placeholder="Enter your secret message..."></textarea>
+      <div class="actions">
+        <button class="btn btn-primary" id="encryptBtn">Encrypt</button>
+        <span class="status" id="encryptStatus"></span>
+      </div>
+      <div class="output-wrap">
+        <textarea id="encryptedOut" readonly placeholder="Cipher text will appear here..."></textarea>
+        <button class="btn btn-copy" data-target="encryptedOut">Copy</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="decrypt" class="section">
+    <div class="card glass">
+      <h2><span class="accent">🔓</span> Decrypt Text</h2>
+      <textarea id="cipherText" placeholder="Paste cipher text..."></textarea>
+      <div class="actions">
+        <button class="btn btn-primary" id="decryptBtn">Decrypt</button>
+        <span class="status" id="decryptStatus"></span>
+      </div>
+      <div class="output-wrap">
+        <textarea id="decryptedOut" readonly placeholder="Decrypted message will appear here..."></textarea>
+        <button class="btn btn-copy" data-target="decryptedOut">Copy</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="card glass about">
+      <h2>About <span class="accent">CipherVault</span></h2>
+      <p><strong>Cryptography</strong> is the practice of securing information so that only intended parties can read it. It powers everything from messaging apps to online banking.</p>
+      <p><strong>Data security</strong> matters because every leaked password or message can lead to identity theft, financial loss, and broken trust.</p>
+      <p><strong>CipherVault</strong> is a lightweight demonstration of symmetric encryption using Python's <code>cryptography</code> library (Fernet / AES-128-CBC + HMAC). Type, encrypt, share, decrypt — safely.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Built with 🛡 by <strong>CipherVault Dev</strong></p>
+    <div class="socials">
+      <a href="#" aria-label="GitHub">GitHub</a>
+      <a href="#" aria-label="Twitter">Twitter</a>
+      <a href="#" aria-label="LinkedIn">LinkedIn</a>
+    </div>
+    <p class="tiny">© 2026 CipherVault. For educational use.</p>
+  </footer>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
